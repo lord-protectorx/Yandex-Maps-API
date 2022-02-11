@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>625</width>
-    <height>614</height>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,7 @@ background-color: rgb(255, 255, 243);</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="coords">
     <attribute name="title">
@@ -168,7 +168,7 @@ background-color: rgb(255, 255, 243);</string>
     <attribute name="title">
      <string>Адрес</string>
     </attribute>
-    <widget class="QLineEdit" name="adress_lineEdit">
+    <widget class="QLineEdit" name="address_lineEdit">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -253,6 +253,19 @@ background-color: rgb(255, 255, 243);</string>
    </property>
    <property name="text">
     <string>Сброс</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="full_address">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>610</y>
+     <width>231</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
