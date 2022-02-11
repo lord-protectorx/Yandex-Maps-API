@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(230, 241, 255);
+background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 243);</string>
+  </property>
   <widget class="QLabel" name="image">
    <property name="geometry">
     <rect>
@@ -30,7 +35,7 @@
    <property name="geometry">
     <rect>
      <x>560</x>
-     <y>40</y>
+     <y>10</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -39,6 +44,9 @@
     <font>
      <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(239, 255, 234);</string>
    </property>
    <property name="text">
     <string>Режим</string>
@@ -54,7 +62,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="coords">
     <attribute name="title">
@@ -71,6 +79,9 @@
        <width>151</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 255, 234);</string>
      </property>
      <property name="text">
       <string>37.502471</string>
@@ -105,6 +116,9 @@
        <width>151</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 255, 234);</string>
      </property>
      <property name="text">
       <string>55.702891</string>
@@ -142,6 +156,9 @@
        <pointsize>19</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 255, 234);</string>
+     </property>
      <property name="text">
       <string>Искать</string>
      </property>
@@ -162,6 +179,9 @@
        <width>191</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 255, 234);</string>
      </property>
      <property name="text">
       <string>ул. Ленивка, Москва</string>
@@ -199,11 +219,41 @@
        <pointsize>19</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 255, 234);</string>
+     </property>
      <property name="text">
       <string>Искать</string>
      </property>
     </widget>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="delete_Button">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>80</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Сбросс&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;свыавыаыва&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(239, 255, 234);</string>
+   </property>
+   <property name="text">
+    <string>Сброс</string>
+   </property>
   </widget>
  </widget>
  <resources/>

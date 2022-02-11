@@ -39,6 +39,9 @@ class Api(QWidget):
         self.modeButton.clicked.connect(self.modes)
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.searchButton_2.clicked.connect(self.address_finder)
+        self.delete_Button.clicked.connect(self.delete_pt)
+        self.delete_Button.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tabWidget.setFocusPolicy(QtCore.Qt.NoFocus)
 
 
 
@@ -111,6 +114,16 @@ class Api(QWidget):
         self.pixmap = QPixmap(self.map_file)
         self.image.resize(600, 450)
         self.image.setPixmap(self.pixmap)
+
+    def delete_pt(self):
+        self.pt = None
+        self.params = {
+            "ll": ",".join([self.lon, self.lat]),
+            "z": self.delta,
+            "l": self.l,
+            "pt": self.pt
+        }
+        self.create_image()
 
     def keyPressEvent(self, event):
         # PgDown
