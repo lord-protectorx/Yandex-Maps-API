@@ -23,6 +23,7 @@ class Api(QWidget):
         super().__init__()
         uic.loadUi('Api.ui', self)
 
+        self.pt = None
         self.lib = ['map', 'sat', 'sat,skl']
         self.counter = 0
         self.l = self.lib[0]
@@ -49,7 +50,8 @@ class Api(QWidget):
         self.params = {
             "ll": ",".join([self.lon, self.lat]),
             "z": self.delta,
-            "l": self.l
+            "l": self.l,
+            "pt": self.pt
         }
 
         self.create_image()
@@ -63,7 +65,8 @@ class Api(QWidget):
         self.params = {
             "ll": ",".join([self.lon, self.lat]),
             "z": self.delta,
-            "l": self.l
+            "l": self.l,
+            "pt": self.pt
         }
 
         self.create_image()
@@ -84,11 +87,13 @@ class Api(QWidget):
             self.toponym_coordinates = self.toponym['Point']['pos'].split()
 
             self.lon, self.lat = self.toponym_coordinates
+            self.pt = f'{self.lon},{self.lat},pm2rdm'
 
         self.params = {
             "ll": ",".join([self.lon, self.lat]),
             "z": self.delta,
-            "l": self.l
+            "l": self.l,
+            "pt": self.pt
         }
 
         self.create_image()
@@ -114,7 +119,8 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": self.l
+                "l": self.l,
+                "pt": self.pt
             }
         #PgUp
         if event.key() == Qt.Key_PageUp:
@@ -122,7 +128,8 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": self.l
+                "l": self.l,
+                "pt": self.pt
             }
         # Up
         if event.key() == PyQt5.QtCore.Qt.Key_Up:
@@ -130,7 +137,8 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": self.l
+                "l": self.l,
+                "pt": self.pt
             }
         # Down
         if event.key() == Qt.Key_Down:
@@ -138,7 +146,8 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": self.l
+                "l": self.l,
+                "pt": self.pt
             }
         # Right
         if event.key() == Qt.Key_Right:
@@ -146,7 +155,8 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": self.l
+                "l": self.l,
+                "pt": self.pt
             }
 
         # Left
@@ -155,7 +165,8 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": self.l
+                "l": self.l,
+                "pt": self.pt
             }
 
         self.create_image()
