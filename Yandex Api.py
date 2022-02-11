@@ -22,27 +22,43 @@ class Api(QWidget):
     def __init__(self):
         super().__init__()
         uic.loadUi('Api.ui', self)
+
+        self.lib = ['map', 'sat', 'sat,skl']
+        self.counter = 0
+        self.l = self.lib[0]
+        self.delta = 17
+
         self.searchButton.clicked.connect(self.initUI)
         self.searchButton.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.latEdit.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.lonEdit.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.latEdit.setFocusPolicy(QtCore.Qt.ClickFocus)
+        self.lonEdit.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.modeButton.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.modeButton.clicked.connect(self.initUI)
+        self.modeButton.clicked.connect(self.modes)
+        self.setFocusPolicy(QtCore.Qt.StrongFocus)
+
 
 
     def initUI(self):
         self.lat = self.latEdit.text()
         self.lon = self.lonEdit.text()
-        self.delta = 17
         self.api_server = "http://static-maps.yandex.ru/1.x/"
 
+        print(self.l)
         self.params = {
             "ll": ",".join([self.lon, self.lat]),
             "z": self.delta,
-            "l": "map"
+            "l": self.l
         }
 
         self.create_image()
+
+
+    def modes(self):
+        self.counter += 1
+        if self.counter > 2: self.counter = 0
+        self.l = self.lib[self.counter]
+
+        self.initUI()
 
 
     def create_image(self):
@@ -60,24 +76,21 @@ class Api(QWidget):
         self.image.setPixmap(self.pixmap)
 
     def keyPressEvent(self, event):
-        print(event.key())
         # PgDown
         if event.key() == Qt.Key_PageDown:
             self.delta -= 1
-            print(self.delta)
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": "map"
+                "l": self.l
             }
         #PgUp
         if event.key() == Qt.Key_PageUp:
             self.delta += 1
-            print(self.delta)
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": "map"
+                "l": self.l
             }
         # Up
         if event.key() == PyQt5.QtCore.Qt.Key_Up:
@@ -85,7 +98,7 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": "map"
+                "l": self.l
             }
         # Down
         if event.key() == Qt.Key_Down:
@@ -93,7 +106,7 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": "map"
+                "l": self.l
             }
         # Right
         if event.key() == Qt.Key_Right:
@@ -101,7 +114,7 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": "map"
+                "l": self.l
             }
 
         # Left
@@ -110,7 +123,7 @@ class Api(QWidget):
             self.params = {
                 "ll": ",".join([self.lon, self.lat]),
                 "z": self.delta,
-                "l": "map"
+                "l": self.l
             }
 
         self.create_image()
