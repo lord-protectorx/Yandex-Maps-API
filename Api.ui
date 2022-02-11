@@ -6,117 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>632</width>
-    <height>582</height>
+    <width>625</width>
+    <height>614</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="searchButton">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>40</y>
-     <width>131</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>19</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Искать</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>70</y>
-     <width>81</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Широта</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lont">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>30</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Долгота</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="latEdit">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>40</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>55.702891</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lonEdit">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>70</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>37.502471</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>240</y>
-     <width>151</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="image">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>150</y>
      <width>31</width>
      <height>20</height>
     </rect>
@@ -128,7 +29,7 @@
   <widget class="QPushButton" name="modeButton">
    <property name="geometry">
     <rect>
-     <x>550</x>
+     <x>560</x>
      <y>40</y>
      <width>51</width>
      <height>51</height>
@@ -142,6 +43,167 @@
    <property name="text">
     <string>Режим</string>
    </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>10</y>
+     <width>481</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="coords">
+    <attribute name="title">
+     <string>Координаты</string>
+    </attribute>
+    <widget class="QLineEdit" name="lonEdit">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>37.502471</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>50</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Широта</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="latEdit">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>55.702891</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lont">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>10</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Долгота</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="searchButton">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>20</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>19</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Искать</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="address">
+    <attribute name="title">
+     <string>Адрес</string>
+    </attribute>
+    <widget class="QLineEdit" name="adress_lineEdit">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ул. Ленивка, Москва</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>10</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Адрес</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="searchButton_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>30</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>19</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Искать</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

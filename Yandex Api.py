@@ -27,6 +27,8 @@ class Api(QWidget):
         self.counter = 0
         self.l = self.lib[0]
         self.delta = 17
+        self.api_server = "http://static-maps.yandex.ru/1.x/"
+
 
         self.searchButton.clicked.connect(self.initUI)
         self.searchButton.setFocusPolicy(QtCore.Qt.NoFocus)
@@ -35,13 +37,13 @@ class Api(QWidget):
         self.modeButton.setFocusPolicy(QtCore.Qt.NoFocus)
         self.modeButton.clicked.connect(self.modes)
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.searchButton_2.clicked.connect(self.address_finder)
 
 
 
     def initUI(self):
         self.lat = self.latEdit.text()
         self.lon = self.lonEdit.text()
-        self.api_server = "http://static-maps.yandex.ru/1.x/"
 
         print(self.l)
         self.params = {
@@ -58,8 +60,38 @@ class Api(QWidget):
         if self.counter > 2: self.counter = 0
         self.l = self.lib[self.counter]
 
-        self.initUI()
+        self.params = {
+            "ll": ",".join([self.lon, self.lat]),
+            "z": self.delta,
+            "l": self.l
+        }
 
+        self.create_image()
+
+    def address_finder(self):
+        geocoder_api_server = 'http://geocode-maps.yandex.ru/1.x/'
+        params = {
+            'apikey': "40d1649f-0493-4b70-98ba-98533de7710b",
+            'geocode': self.adress_lineEdit.text(),
+            'format': 'json'
+        }
+        response = requests.get(geocoder_api_server, params=params).json()
+
+        if not response:
+            print('Ошибка в геокодере')
+        else:
+            self.toponym = response['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']
+            self.toponym_coordinates = self.toponym['Point']['pos'].split()
+
+            self.lon, self.lat = self.toponym_coordinates
+
+        self.params = {
+            "ll": ",".join([self.lon, self.lat]),
+            "z": self.delta,
+            "l": self.l
+        }
+
+        self.create_image()
 
     def create_image(self):
         self.response = requests.get(self.api_server, params=self.params)
