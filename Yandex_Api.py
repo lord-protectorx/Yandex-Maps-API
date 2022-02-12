@@ -30,6 +30,7 @@ class Api(QWidget):
         self.l = self.lib[0]
         self.delta = 17
         self.api_server = "http://static-maps.yandex.ru/1.x/"
+        self.postcode = ''
 
 
         self.searchButton.clicked.connect(self.initUI)
@@ -43,8 +44,8 @@ class Api(QWidget):
         self.delete_Button.clicked.connect(self.delete_pt)
         self.delete_Button.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tabWidget.setFocusPolicy(QtCore.Qt.NoFocus)
-
-
+        self.index_Button.clicked.connect(self.show_index)
+        self.index_Button.setFocusPolicy(QtCore.Qt.NoFocus)
 
     def initUI(self):
         self.lat = self.latEdit.text()
@@ -59,7 +60,6 @@ class Api(QWidget):
         }
 
         self.create_image()
-
 
     def modes(self):
         self.counter += 1
@@ -90,6 +90,10 @@ class Api(QWidget):
             self.toponym = response['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']
             self.toponym_address = self.toponym['metaDataProperty']['GeocoderMetaData']['text']
             self.toponym_coordinates = self.toponym['Point']['pos'].split()
+
+            if 'postal_code' in self.toponym['metaDataProperty']['GeocoderMetaData']['Address']:
+                self.postcode = ' ,' + self.toponym['metaDataProperty']['GeocoderMetaData']['Address']['postal_code']
+
 
             self.full_address.setText(self.toponym_address)
 
@@ -129,6 +133,10 @@ class Api(QWidget):
         }
         self.create_image()
         self.full_address.setText('')
+
+    def show_index(self):
+        print(self.postcode)
+        self.full_address.setText(self.toponym_address + self.postcode)
 
     def keyPressEvent(self, event):
         # PgDown
